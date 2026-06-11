@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #0a0a0a;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ── Colour-shift keyframes ── */
+@keyframes hueShift {
+  0%   { color: #1a5cff; }
+  25%  { color: #a855f7; }
+  50%  { color: #06b6d4; }
+  75%  { color: #f97316; }
+  100% { color: #1a5cff; }
+}
+
+@keyframes gradShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Utility classes ── */
+.colour-text  { animation: hueShift 6s ease-in-out infinite; }
+
+.colour-grad {
+  background: linear-gradient(135deg, #1a5cff, #a855f7, #06b6d4, #f97316, #1a5cff);
+  background-size: 300% 300%;
+  animation: gradShift 5s ease infinite;
+}
+
+.colour-grad-bar {
+  background: linear-gradient(90deg, #1a5cff, #a855f7, #06b6d4, #f97316, #1a5cff);
+  background-size: 300% 100%;
+  animation: gradShift 5s ease infinite;
+}
+
+.font-display { font-family: 'Unbounded', sans-serif; }
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(.2,0,.2,1), transform 0.7s cubic-bezier(.2,0,.2,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.32s; }
+.reveal-delay-4 { transition-delay: 0.44s; }
+.reveal-delay-5 { transition-delay: 0.56s; }
+
+/* ── Nav ── */
+.nav-blur {
+  background: rgba(255,255,255,0.93);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ── Top accent bar ── */
+.top-bar {
+  height: 3px;
+  width: 100%;
+}
+
+/* ── Buttons ── */
+.btn-grad {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+
+.btn-grad:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0a0a0a;
+  background: transparent;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+
+.btn-outline:hover { border-color: #0a0a0a; transform: translateY(-1px); }
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 40px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0a0a0a;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+
+.btn-white:hover { background: #f0f0f0; transform: translateY(-1px); }
+
+/* ── Section label ── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 18px;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Form inputs ── */
+.field-input {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #0a0a0a;
+  background: #f7f7f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  resize: none;
+}
+
+.field-input::placeholder { color: #bbb; }
+.field-input:focus { border-color: #1a5cff; background: #fff; }
+.field-input.error { border-color: #f97316; }
+
+/* ── Divider rule ── */
+.rule { border: none; border-top: 1px solid #e5e5e5; }
+.rule-dark { border: none; border-top: 1px solid rgba(255,255,255,0.08); }
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .colour-text, .colour-grad, .colour-grad-bar { animation: none !important; }
+  .reveal { transition: none !important; }
+}
