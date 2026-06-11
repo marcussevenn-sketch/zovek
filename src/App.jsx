@@ -1,8 +1,9 @@
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Stats from './components/Stats'
-import HowWeWork from './components/HowWeWork'
-import Services from './components/Services'
+import Framework from './components/Framework'
+import NetworkDiagram from './components/NetworkDiagram'
+import System from './components/System'
 import Results from './components/Results'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -13,8 +14,9 @@ export default function App() {
       <Nav />
       <Hero />
       <Stats />
-      <HowWeWork />
-      <Services />
+      <Framework />
+      <NetworkDiagram />
+      <System />
       <Results />
       <Contact />
       <Footer />
