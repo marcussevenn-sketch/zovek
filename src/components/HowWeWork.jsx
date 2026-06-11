@@ -36,25 +36,22 @@ export default function HowWeWork() {
   const ref = useReveal()
 
   return (
-    <section id="how-we-work" ref={ref} className="bg-ink py-24 md:py-32 px-[5%]">
+    <section id="how-we-work" ref={ref} className="bg-[#f7f7f5] py-24 md:py-32 px-[5%]">
       <div className="max-w-[1200px] mx-auto">
 
         <div className="reveal mb-16">
-          <div className="section-label" style={{ color: 'rgba(255,255,255,0.35)' }}>
-            <span
-              className="inline-block w-5 h-0.5 rounded colour-grad-bar flex-shrink-0"
-              style={{ background: 'linear-gradient(90deg,#1a5cff,#a855f7,#06b6d4,#f97316)' }}
-            />
+          <div className="section-label">
+            <span className="inline-block w-5 h-0.5 rounded colour-grad-bar flex-shrink-0" />
             How we work
           </div>
           <h2
-            className="font-display font-black text-white tracking-[-1.5px] leading-[1.08]"
+            className="font-display font-black text-[#0a0a0a] tracking-[-1.5px] leading-[1.08]"
             style={{ fontSize: 'clamp(28px, 3.5vw, 46px)' }}
           >
             The full revenue cycle.<br />
             <span className="colour-text">One team. One P&L.</span>
           </h2>
-          <p className="text-white/45 text-[16px] leading-relaxed max-w-[520px] mt-4">
+          <p className="text-[#666] text-[16px] leading-relaxed max-w-[520px] mt-4">
             Most agencies stop at the lead. Zovek runs the whole race — from first impression to signed deal. Paid media gets the conversation started. Telesales closes it.
           </p>
         </div>
@@ -63,10 +60,8 @@ export default function HowWeWork() {
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`reveal reveal-delay-${i + 1} relative rounded-2xl p-8 border overflow-hidden transition-all duration-300 ${
-                step.highlight
-                  ? 'border-white/20 bg-white/[0.04]'
-                  : 'border-white/[0.07] bg-transparent hover:bg-white/[0.03]'
+              className={`reveal reveal-delay-${i + 1} relative rounded-2xl p-8 border border-[#e8e8e8] bg-white overflow-hidden transition-all duration-300 ${
+                step.highlight ? 'shadow-sm' : 'hover:shadow-md'
               }`}
             >
               {step.highlight && (
@@ -78,27 +73,24 @@ export default function HowWeWork() {
                   {step.num}
                 </span>
                 <span
-                  className="text-[10px] font-medium tracking-[0.12em] uppercase px-3 py-1 rounded-full border"
-                  style={{
-                    color: step.highlight ? '#ffffff' : 'rgba(255,255,255,0.35)',
-                    borderColor: step.highlight ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.08)',
-                  }}
+                  className={`text-[10px] font-medium tracking-[0.12em] uppercase px-3 py-1 rounded-full border border-[#e8e8e8] ${
+                    step.highlight ? 'text-[#0a0a0a] bg-[#f7f7f5]' : 'text-[#666]'
+                  }`}
                 >
                   {step.phase}
                 </span>
               </div>
 
-              <h3 className="font-display font-bold text-white text-[15px] tracking-[-0.3px] leading-snug mb-3">
+              <h3 className="font-display font-bold text-[#0a0a0a] text-[15px] tracking-[-0.3px] leading-snug mb-3">
                 {step.title}
               </h3>
-              <p className="text-white/45 text-[14px] leading-[1.7] mb-5">{step.body}</p>
+              <p className="text-[#666] text-[14px] leading-[1.7] mb-5">{step.body}</p>
 
               <div className="flex flex-wrap gap-2">
                 {step.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] px-2.5 py-1 rounded-full border"
-                    style={{ color: 'rgba(255,255,255,0.3)', borderColor: 'rgba(255,255,255,0.08)' }}
+                    className="text-[11px] text-[#666] px-2.5 py-1 rounded-full border border-[#e8e8e8] bg-[#f7f7f5]"
                   >
                     {tag}
                   </span>

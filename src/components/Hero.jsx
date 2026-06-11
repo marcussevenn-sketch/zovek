@@ -41,7 +41,7 @@ export default function Hero() {
             style={{fontSize:'clamp(42px,5.5vw,74px)'}}>
             Revenue<br/>is a<br/><span className="colour-grad-text">system.</span>
           </h1>
-          <p className="hi reveal text-[#555] text-[17px] leading-[1.8] max-w-[440px] mb-3">
+          <p className="hi reveal text-[#666] text-[17px] leading-[1.8] max-w-[440px] mb-3">
             Zovek builds the complete infrastructure behind predictable revenue — from first click to closed deal.
           </p>
           <p className="hi reveal text-[#999] text-[13px] leading-relaxed max-w-[400px] mb-12">
@@ -95,7 +95,7 @@ export default function Hero() {
             {NODES.map((n,i)=>(
               <div key={n.id} className="absolute z-20 text-center node-pulse"
                 style={{left:`${n.cx}%`,top:`${n.cy}%`,transform:'translate(-50%,-50%)',animationDelay:`${i*0.5}s`}}>
-                <div className="card px-3 py-2 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-default" style={{minWidth:80}}>
+                <div className="bg-white border border-[#e8e8e8] rounded-2xl px-3 py-2 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-default" style={{minWidth:80}}>
                   <div className="font-display font-black text-[9px] text-[#0a0a0a] tracking-tight whitespace-nowrap">{n.label}</div>
                   <div className="text-[8px] text-[#999] whitespace-nowrap mt-0.5">{n.sub}</div>
                 </div>
